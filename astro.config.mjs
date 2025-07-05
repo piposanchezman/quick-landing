@@ -6,9 +6,6 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   vite: {
-    preview: {
-      allowedHosts: ['quickland.net'],
-    },
     plugins: [tailwindcss()]
   }
 });
