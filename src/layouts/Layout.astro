@@ -2,21 +2,85 @@
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.webp" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<!-- Security Headers -->
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-ancestors 'none';" />
+		<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+		<meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains" />
+		<meta http-equiv="X-Frame-Options" content="DENY" />
+		<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+		<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/webp" href="/favicon.webp" />
+		<link rel="apple-touch-icon" href="/favicon.webp" />
+		
+		<!-- Primary Meta Tags -->
+		<title>QuickLand Network - Servidor de Minecraft</title>
+		<meta name="title" content="QuickLand Network - Servidor de Minecraft" />
+		<meta name="description" content="Únete a QuickLand Network, el mejor servidor de Minecraft en español. Eventos únicos, economía balanceada, protección de terrenos y una comunidad activa te esperan. IP: quickland.net" />
+		<meta name="keywords" content="minecraft, servidor, survival, quickland, español, eventos, economía, protección, comunidad, bedrock, java" />
+		<meta name="author" content="QuickLand Network" />
+		<meta name="robots" content="index, follow" />
+		<meta name="language" content="Spanish" />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://quickland.net/" />
+		<meta property="og:title" content="QuickLand Network - Servidor de Minecraft" />
+		<meta property="og:description" content="Únete a QuickLand Network, el mejor servidor de Minecraft en español. Eventos únicos, economía balanceada, protección de terrenos y una comunidad activa te esperan." />
+		<meta property="og:image" content="https://quickland.net/og-image.webp" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="QuickLand Network - Servidor de Minecraft" />
+		<meta property="og:site_name" content="QuickLand Network" />
+		<meta property="og:locale" content="es_ES" />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://quickland.net/" />
+		<meta property="twitter:title" content="QuickLand Network - Servidor de Minecraft" />
+		<meta property="twitter:description" content="Únete a QuickLand Network, el mejor servidor de Minecraft en español. Eventos únicos, economía balanceada, protección de terrenos y una comunidad activa te esperan." />
+		<meta property="twitter:image" content="https://quickland.net/og-image.webp" />
+		<meta property="twitter:image:alt" content="QuickLand Network - Servidor de Minecraft" />
+		
+		<!-- Additional Meta Tags -->
+		<meta name="theme-color" content="#55ffff" />
+		<meta name="msapplication-TileColor" content="#55ffff" />
+		<meta name="application-name" content="QuickLand Network" />
+		
+		<!-- Canonical URL -->
+		<link rel="canonical" href="https://quickland.net/" />
+		
+		<!-- DNS Prefetch for external domains -->
+		<link rel="dns-prefetch" href="//discord.quickland.net" />
+		<link rel="dns-prefetch" href="//tienda.quickland.net" />
+		
+		<!-- Generator -->
 		<meta name="generator" content={Astro.generator} />
-		<title>QuickLand Network</title>
+		
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "QuickLand Network",
+			"description": "Servidor de Minecraft en español con eventos únicos, economía balanceada y comunidad activa",
+			"url": "https://quickland.net",
+			"logo": "https://quickland.net/favicon.webp",
+			"sameAs": [
+				"https://discord.quickland.net"
+			],
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"contactType": "customer service",
+				"url": "https://discord.quickland.net"
+			}
+		}
+		</script>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
