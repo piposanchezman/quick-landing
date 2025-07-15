@@ -12,8 +12,9 @@ export default defineConfig({
         'X-Content-Type-Options': 'nosniff',
         'X-Frame-Options': 'DENY',
         'Referrer-Policy': 'strict-origin-when-cross-origin',
-        'Permissions-Policy': 'geolocation=(), microphone=(), camera=()'
-      }
+        'Permissions-Policy': 'geolocation=(), microphone=(), camera=()',
+      },
+      allowedHosts: ['quickland.net', 'www.quickland.net'],
     }
   },
   compressHTML: true,
