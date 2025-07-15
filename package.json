@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
+    "build": "astro build --allowed-hosts=quickland.net,",
+    "preview": "astro preview --allowed-hosts=quickland.net",
     "astro": "astro"
   },
   "dependencies": {
