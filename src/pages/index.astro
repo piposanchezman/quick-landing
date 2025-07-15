@@ -1,6 +1,11 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Features from '../components/Features.astro';
+import About from '../components/About.astro';
+import Rules from '../components/Rules.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 
 import '../styles/global.css';
 
@@ -9,5 +14,93 @@ import '../styles/global.css';
 ---
 
 <Layout>
-	<Welcome />
+  <Header/>
+  <Features/>
+  <About/>
+  <Rules/>
+  <Contact/>
+  <Footer/>
 </Layout>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fade-in-delay {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+  
+  .animate-fade-in-delay {
+    animation: fade-in-delay 1s ease-out 0.3s both;
+  }
+</style>
+
+<script>
+  function showTooltip(id: string, text: string) {
+    const tooltip = document.getElementById(id);
+    if (!tooltip) return;
+    tooltip.innerText = text;
+    tooltip.classList.remove('opacity-0');
+    tooltip.classList.add('opacity-100');
+    setTimeout(() => {
+      tooltip.classList.add('opacity-0');
+      tooltip.classList.remove('opacity-100');
+    }, 1500);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const copyJavaBtn = document.getElementById("copy-java");
+    if (copyJavaBtn) {
+      copyJavaBtn.addEventListener("click", () => {
+        navigator.clipboard.writeText("quickland.net").then(() => showTooltip("tooltip-java", "¡Copiado!"));
+      });
+    }
+
+    const copyBedrockBtn = document.getElementById("copy-bedrock");
+    if (copyBedrockBtn) {
+      copyBedrockBtn.addEventListener("click", () => {
+        navigator.clipboard.writeText("bedrock.quickland.net").then(() => showTooltip("tooltip-bedrock", "¡Copiado!"));
+      });
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e: Event) {
+        e.preventDefault();
+        const target = document.querySelector((e.currentTarget as HTMLAnchorElement).getAttribute('href')!);
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections for animations
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  });
+</script>
